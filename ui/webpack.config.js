@@ -9,10 +9,10 @@ module.exports={
         filename:"bundle.js",
     },
     mode: process.env.NODE_ENV ==="production"? "production":"development",
-    module: {
+module: {
         rules: [
           {
-            test: /\.?js$/,
+            test: /\.(js)$/,
             exclude: /node_modules/,
             use: {
               loader: "babel-loader",
@@ -21,6 +21,10 @@ module.exports={
               }
             }
           },
+          {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+          }
         ]
       },
 };

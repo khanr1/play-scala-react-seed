@@ -1,4 +1,4 @@
-name := """play-scala-react-seed"""
+name := """play-scala-reagarct-seed"""
 organization := "com.example"
 
 version := "1.0-SNAPSHOT"
