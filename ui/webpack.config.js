@@ -7,12 +7,13 @@ module.exports={
     output:{
         path:path.resolve('../',"public/javascripts"),
         filename:"bundle.js",
+        assetModuleFilename: '../images/[hash][ext][query]'
     },
     mode: process.env.NODE_ENV ==="production"? "production":"development",
-module: {
+    module: {
         rules: [
           {
-            test: /\.(js)$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
               loader: "babel-loader",
@@ -26,9 +27,13 @@ module: {
             use: ["style-loader", "css-loader"],
           },
           {
-            test: /\.svg$/,
-            use: 'svg-inline-loader'
-        },
+
+            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            type: 'asset/resource'
+     
+          }
+          
+          
         ]
       },
 };
